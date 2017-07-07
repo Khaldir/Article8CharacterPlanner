@@ -381,7 +381,7 @@ namespace CharacterPlanner
 
         private void CyberDefensesScroll(object sender, EventArgs e)
         {
-            if(firewall.Value+backtrace.Value+attackBarrier.Value > 6)
+            if(firewall.Value+backtrace.Value+attackBarrier.Value-3 > 6)
             {
                 validDefs = false;
             }
