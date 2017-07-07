@@ -21,14 +21,44 @@ namespace CharacterPlanner
         bool validMods = true;
         bool validBGs = true;
         bool validDefs = true;
+        bool validFlaws = true;
         int[] AttributePoints = new int[3];
         int[] AbilityPoints = new int[3];
         string[] selectedBG = new string[4];
+        CostedItem[] selectedFlaws = new CostedItem[4];
+        int freebiePoints = 15;
 
         public Form1()
         {
             InitializeComponent();
             string[] bgs = new string[9] { "Allies", "Alternate Identity", "Contacts", "Fame", "Clearance", "Influence", "Mentor", "Resources", "Status" };
+            CostedItem[] flaws = new CostedItem[24]
+            {
+                new CostedItem(1, "Hard Of Hearing"),
+                new CostedItem(1, "Short"),
+                new CostedItem(1, "Tic/Twitch"),
+                new CostedItem(1, "Poor Sight"),
+                new CostedItem(1, "Nightmares"),
+                new CostedItem(1, "Shy"),
+                new CostedItem(1, "Speech Impediment"),
+                new CostedItem(1, "Amnesia"),
+                new CostedItem(1, "Botched Presentation"),
+                new CostedItem(1, "Dark Secret"),
+                new CostedItem(1, "Expendable"),
+                new CostedItem(1, "Mistaken Identity"),
+                new CostedItem(1, "Sympathiser"),
+                new CostedItem(2, "Disfigured"),
+                new CostedItem(2, "Vengeful"),
+                new CostedItem(2, "New Arrival"),
+                new CostedItem(2, "Catspaw"),
+                new CostedItem(2, "Old Flame"),
+                new CostedItem(3, "Addiction"),
+                new CostedItem(3, "Lazy"),
+                new CostedItem(3, "Sleeping with the Enemy"),
+                new CostedItem(1, "Enemy"),
+                new CostedItem(2, "Enemy"),
+                new CostedItem(3, "Enemy")
+            };
             ComboBox[] backgroundBoxes = new ComboBox[4];
             backgroundBoxes[0] = bg1;
             backgroundBoxes[1] = bg2;
@@ -38,11 +68,12 @@ namespace CharacterPlanner
             {
                 backgroundBoxes[i].Items.AddRange(bgs);
             }
+            flawBox.Items.AddRange(flaws);
         }
 
         private void checkValid()
         {
-            ExportButton.Enabled = validAbilities && validAttributes && validMods && validDefs && validBGs;
+            ExportButton.Enabled = validAbilities && validAttributes && validMods && validDefs && validBGs && validFlaws;
             if (!validAbilities)
                 ExportButton.Text = "Invalid Abilities";
             else if (!validAttributes)
@@ -53,6 +84,8 @@ namespace CharacterPlanner
                 ExportButton.Text = "Invalid Defenses";
             else if (!validBGs)
                 ExportButton.Text = "Invalid Backgrounds";
+            else if (!validFlaws)
+                ExportButton.Text = "Invalid Flaws";
             else
                 ExportButton.Text = "Export Character";
         }
@@ -322,6 +355,14 @@ namespace CharacterPlanner
             getRange("Backtrace").Text = getDots(backtrace.Value);
             getRange("AttackBarrier").Text = getDots(attackBarrier.Value);
 
+            //Freebie Points
+            //Flaws
+            for (int i = 1; i < 4; i++)
+            {
+                getRange("Flaw" + (i.ToString())).Text = selectedFlaws[i - 1].item;
+                getRange("Flaw" + (i.ToString()) + "Pts").Text = selectedFlaws[i - 1].cost.ToString();
+            }
+
 
             //Save Document
             wordDoc.SaveAs2(System.Windows.Forms.Application.StartupPath + "/" + CharacterName.Text + " - Character Sheet");
@@ -390,6 +431,24 @@ namespace CharacterPlanner
             checkValid();
         }
 
+        private void flawsChanged(object sender, EventArgs e)
+        {
+            if (flawBox.CheckedItems.Count > 3)
+            {
+                validFlaws = false;
+                checkValid();
+            }
+            else
+            {
+                freebiePoints = 15;
+                foreach (CostedItem flaw in flawBox.CheckedItems)
+                {
+                    freebiePoints = freebiePoints + flaw.cost;
+                }
+            }
+                
+        }
+
         private string getDots(int dots)
         {
             string dotString = "";
@@ -419,5 +478,22 @@ namespace CharacterPlanner
         }
 
 
+    }
+
+    public class CostedItem
+    {
+        public int cost;
+        public string item;
+
+        public CostedItem(int costIn, string itemin)
+        {
+            cost = costIn;
+            item = itemin;
+        }
+
+        override public string ToString()
+        {
+            return (item + " - " + cost.ToString());
+        }
     }
 }

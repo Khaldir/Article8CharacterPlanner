@@ -29,6 +29,24 @@
         private void InitializeComponent()
         {
             this.CharacterDetails = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.flawBox = new System.Windows.Forms.CheckedListBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.attackBarrier = new System.Windows.Forms.TrackBar();
+            this.backtrace = new System.Windows.Forms.TrackBar();
+            this.firewall = new System.Windows.Forms.TrackBar();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bgdots4 = new System.Windows.Forms.TrackBar();
+            this.bg4 = new System.Windows.Forms.ComboBox();
+            this.bgdots3 = new System.Windows.Forms.TrackBar();
+            this.bg3 = new System.Windows.Forms.ComboBox();
+            this.bgdots2 = new System.Windows.Forms.TrackBar();
+            this.bg2 = new System.Windows.Forms.ComboBox();
+            this.bgdots1 = new System.Windows.Forms.TrackBar();
+            this.bg1 = new System.Windows.Forms.ComboBox();
             this.propModParent = new System.Windows.Forms.GroupBox();
             this.prop3 = new System.Windows.Forms.Label();
             this.propMod3 = new System.Windows.Forms.TrackBar();
@@ -136,23 +154,17 @@
             this.CharacterName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ExportButton = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.bg1 = new System.Windows.Forms.ComboBox();
-            this.bgdots1 = new System.Windows.Forms.TrackBar();
-            this.bgdots2 = new System.Windows.Forms.TrackBar();
-            this.bg2 = new System.Windows.Forms.ComboBox();
-            this.bgdots3 = new System.Windows.Forms.TrackBar();
-            this.bg3 = new System.Windows.Forms.ComboBox();
-            this.bgdots4 = new System.Windows.Forms.TrackBar();
-            this.bg4 = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.attackBarrier = new System.Windows.Forms.TrackBar();
-            this.backtrace = new System.Windows.Forms.TrackBar();
-            this.firewall = new System.Windows.Forms.TrackBar();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
             this.CharacterDetails.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.attackBarrier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backtrace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firewall)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bgdots4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bgdots3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bgdots2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bgdots1)).BeginInit();
             this.propModParent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.propMod3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propMod2)).BeginInit();
@@ -200,15 +212,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Stamina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dexterity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Strength)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bgdots1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bgdots2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bgdots3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bgdots4)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.attackBarrier)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backtrace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firewall)).BeginInit();
             this.SuspendLayout();
             // 
             // CharacterDetails
@@ -218,6 +221,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CharacterDetails.AutoScroll = true;
             this.CharacterDetails.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CharacterDetails.Controls.Add(this.groupBox4);
             this.CharacterDetails.Controls.Add(this.groupBox3);
             this.CharacterDetails.Controls.Add(this.groupBox2);
             this.CharacterDetails.Controls.Add(this.propModParent);
@@ -236,6 +240,205 @@
             this.CharacterDetails.Name = "CharacterDetails";
             this.CharacterDetails.Size = new System.Drawing.Size(815, 512);
             this.CharacterDetails.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.flawBox);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox4.Location = new System.Drawing.Point(6, 1337);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(781, 177);
+            this.groupBox4.TabIndex = 57;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Flaws";
+            // 
+            // flawBox
+            // 
+            this.flawBox.CheckOnClick = true;
+            this.flawBox.ColumnWidth = 225;
+            this.flawBox.FormattingEnabled = true;
+            this.flawBox.Location = new System.Drawing.Point(6, 22);
+            this.flawBox.MultiColumn = true;
+            this.flawBox.Name = "flawBox";
+            this.flawBox.Size = new System.Drawing.Size(757, 148);
+            this.flawBox.TabIndex = 0;
+            this.flawBox.SelectedIndexChanged += new System.EventHandler(this.flawsChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label47);
+            this.groupBox3.Controls.Add(this.label44);
+            this.groupBox3.Controls.Add(this.label41);
+            this.groupBox3.Controls.Add(this.attackBarrier);
+            this.groupBox3.Controls.Add(this.backtrace);
+            this.groupBox3.Controls.Add(this.firewall);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox3.Location = new System.Drawing.Point(400, 1090);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(387, 241);
+            this.groupBox3.TabIndex = 56;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Cyber Defenses (6)";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(48, 148);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(98, 17);
+            this.label47.TabIndex = 56;
+            this.label47.Text = "Attack Barrier:";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(71, 97);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(75, 17);
+            this.label44.TabIndex = 55;
+            this.label44.Text = "Backtrace:";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(87, 46);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(59, 17);
+            this.label41.TabIndex = 54;
+            this.label41.Text = "Firewall:";
+            // 
+            // attackBarrier
+            // 
+            this.attackBarrier.LargeChange = 1;
+            this.attackBarrier.Location = new System.Drawing.Point(141, 136);
+            this.attackBarrier.Maximum = 5;
+            this.attackBarrier.Minimum = 1;
+            this.attackBarrier.Name = "attackBarrier";
+            this.attackBarrier.Size = new System.Drawing.Size(104, 45);
+            this.attackBarrier.TabIndex = 53;
+            this.attackBarrier.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.attackBarrier.Value = 1;
+            this.attackBarrier.Scroll += new System.EventHandler(this.CyberDefensesScroll);
+            // 
+            // backtrace
+            // 
+            this.backtrace.LargeChange = 1;
+            this.backtrace.Location = new System.Drawing.Point(141, 85);
+            this.backtrace.Maximum = 5;
+            this.backtrace.Minimum = 1;
+            this.backtrace.Name = "backtrace";
+            this.backtrace.Size = new System.Drawing.Size(104, 45);
+            this.backtrace.TabIndex = 51;
+            this.backtrace.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.backtrace.Value = 1;
+            this.backtrace.Scroll += new System.EventHandler(this.CyberDefensesScroll);
+            // 
+            // firewall
+            // 
+            this.firewall.LargeChange = 1;
+            this.firewall.Location = new System.Drawing.Point(141, 34);
+            this.firewall.Maximum = 5;
+            this.firewall.Minimum = 1;
+            this.firewall.Name = "firewall";
+            this.firewall.Size = new System.Drawing.Size(104, 45);
+            this.firewall.TabIndex = 49;
+            this.firewall.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.firewall.Value = 1;
+            this.firewall.Scroll += new System.EventHandler(this.CyberDefensesScroll);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.bgdots4);
+            this.groupBox2.Controls.Add(this.bg4);
+            this.groupBox2.Controls.Add(this.bgdots3);
+            this.groupBox2.Controls.Add(this.bg3);
+            this.groupBox2.Controls.Add(this.bgdots2);
+            this.groupBox2.Controls.Add(this.bg2);
+            this.groupBox2.Controls.Add(this.bgdots1);
+            this.groupBox2.Controls.Add(this.bg1);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox2.Location = new System.Drawing.Point(6, 1090);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(387, 241);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Backgrounds (5)";
+            // 
+            // bgdots4
+            // 
+            this.bgdots4.LargeChange = 1;
+            this.bgdots4.Location = new System.Drawing.Point(149, 187);
+            this.bgdots4.Maximum = 5;
+            this.bgdots4.Name = "bgdots4";
+            this.bgdots4.Size = new System.Drawing.Size(104, 45);
+            this.bgdots4.TabIndex = 55;
+            this.bgdots4.TickStyle = System.Windows.Forms.TickStyle.Both;
+            // 
+            // bg4
+            // 
+            this.bg4.FormattingEnabled = true;
+            this.bg4.Location = new System.Drawing.Point(22, 197);
+            this.bg4.Name = "bg4";
+            this.bg4.Size = new System.Drawing.Size(121, 24);
+            this.bg4.TabIndex = 54;
+            this.bg4.SelectedIndexChanged += new System.EventHandler(this.BackgroundChange);
+            // 
+            // bgdots3
+            // 
+            this.bgdots3.LargeChange = 1;
+            this.bgdots3.Location = new System.Drawing.Point(149, 136);
+            this.bgdots3.Maximum = 5;
+            this.bgdots3.Name = "bgdots3";
+            this.bgdots3.Size = new System.Drawing.Size(104, 45);
+            this.bgdots3.TabIndex = 53;
+            this.bgdots3.TickStyle = System.Windows.Forms.TickStyle.Both;
+            // 
+            // bg3
+            // 
+            this.bg3.FormattingEnabled = true;
+            this.bg3.Location = new System.Drawing.Point(22, 146);
+            this.bg3.Name = "bg3";
+            this.bg3.Size = new System.Drawing.Size(121, 24);
+            this.bg3.TabIndex = 52;
+            this.bg3.SelectedIndexChanged += new System.EventHandler(this.BackgroundChange);
+            // 
+            // bgdots2
+            // 
+            this.bgdots2.LargeChange = 1;
+            this.bgdots2.Location = new System.Drawing.Point(149, 85);
+            this.bgdots2.Maximum = 5;
+            this.bgdots2.Name = "bgdots2";
+            this.bgdots2.Size = new System.Drawing.Size(104, 45);
+            this.bgdots2.TabIndex = 51;
+            this.bgdots2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            // 
+            // bg2
+            // 
+            this.bg2.FormattingEnabled = true;
+            this.bg2.Location = new System.Drawing.Point(22, 95);
+            this.bg2.Name = "bg2";
+            this.bg2.Size = new System.Drawing.Size(121, 24);
+            this.bg2.TabIndex = 50;
+            this.bg2.SelectedIndexChanged += new System.EventHandler(this.BackgroundChange);
+            // 
+            // bgdots1
+            // 
+            this.bgdots1.LargeChange = 1;
+            this.bgdots1.Location = new System.Drawing.Point(149, 34);
+            this.bgdots1.Maximum = 5;
+            this.bgdots1.Name = "bgdots1";
+            this.bgdots1.Size = new System.Drawing.Size(104, 45);
+            this.bgdots1.TabIndex = 49;
+            this.bgdots1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            // 
+            // bg1
+            // 
+            this.bg1.FormattingEnabled = true;
+            this.bg1.Location = new System.Drawing.Point(22, 44);
+            this.bg1.Name = "bg1";
+            this.bg1.Size = new System.Drawing.Size(121, 24);
+            this.bg1.TabIndex = 0;
+            this.bg1.SelectedIndexChanged += new System.EventHandler(this.BackgroundChange);
             // 
             // propModParent
             // 
@@ -1500,182 +1703,6 @@
             this.ExportButton.UseVisualStyleBackColor = true;
             this.ExportButton.Click += new System.EventHandler(this.ExportCharacter);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.bgdots4);
-            this.groupBox2.Controls.Add(this.bg4);
-            this.groupBox2.Controls.Add(this.bgdots3);
-            this.groupBox2.Controls.Add(this.bg3);
-            this.groupBox2.Controls.Add(this.bgdots2);
-            this.groupBox2.Controls.Add(this.bg2);
-            this.groupBox2.Controls.Add(this.bgdots1);
-            this.groupBox2.Controls.Add(this.bg1);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox2.Location = new System.Drawing.Point(6, 1090);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(387, 241);
-            this.groupBox2.TabIndex = 12;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Backgrounds (5)";
-            // 
-            // bg1
-            // 
-            this.bg1.FormattingEnabled = true;
-            this.bg1.Location = new System.Drawing.Point(22, 44);
-            this.bg1.Name = "bg1";
-            this.bg1.Size = new System.Drawing.Size(121, 24);
-            this.bg1.TabIndex = 0;
-            this.bg1.SelectedIndexChanged += new System.EventHandler(this.BackgroundChange);
-            // 
-            // bgdots1
-            // 
-            this.bgdots1.LargeChange = 1;
-            this.bgdots1.Location = new System.Drawing.Point(149, 34);
-            this.bgdots1.Maximum = 5;
-            this.bgdots1.Name = "bgdots1";
-            this.bgdots1.Size = new System.Drawing.Size(104, 45);
-            this.bgdots1.TabIndex = 49;
-            this.bgdots1.TickStyle = System.Windows.Forms.TickStyle.Both;
-            // 
-            // bgdots2
-            // 
-            this.bgdots2.LargeChange = 1;
-            this.bgdots2.Location = new System.Drawing.Point(149, 85);
-            this.bgdots2.Maximum = 5;
-            this.bgdots2.Name = "bgdots2";
-            this.bgdots2.Size = new System.Drawing.Size(104, 45);
-            this.bgdots2.TabIndex = 51;
-            this.bgdots2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            // 
-            // bg2
-            // 
-            this.bg2.FormattingEnabled = true;
-            this.bg2.Location = new System.Drawing.Point(22, 95);
-            this.bg2.Name = "bg2";
-            this.bg2.Size = new System.Drawing.Size(121, 24);
-            this.bg2.TabIndex = 50;
-            this.bg2.SelectedIndexChanged += new System.EventHandler(this.BackgroundChange);
-            // 
-            // bgdots3
-            // 
-            this.bgdots3.LargeChange = 1;
-            this.bgdots3.Location = new System.Drawing.Point(149, 136);
-            this.bgdots3.Maximum = 5;
-            this.bgdots3.Name = "bgdots3";
-            this.bgdots3.Size = new System.Drawing.Size(104, 45);
-            this.bgdots3.TabIndex = 53;
-            this.bgdots3.TickStyle = System.Windows.Forms.TickStyle.Both;
-            // 
-            // bg3
-            // 
-            this.bg3.FormattingEnabled = true;
-            this.bg3.Location = new System.Drawing.Point(22, 146);
-            this.bg3.Name = "bg3";
-            this.bg3.Size = new System.Drawing.Size(121, 24);
-            this.bg3.TabIndex = 52;
-            this.bg3.SelectedIndexChanged += new System.EventHandler(this.BackgroundChange);
-            // 
-            // bgdots4
-            // 
-            this.bgdots4.LargeChange = 1;
-            this.bgdots4.Location = new System.Drawing.Point(149, 187);
-            this.bgdots4.Maximum = 5;
-            this.bgdots4.Name = "bgdots4";
-            this.bgdots4.Size = new System.Drawing.Size(104, 45);
-            this.bgdots4.TabIndex = 55;
-            this.bgdots4.TickStyle = System.Windows.Forms.TickStyle.Both;
-            // 
-            // bg4
-            // 
-            this.bg4.FormattingEnabled = true;
-            this.bg4.Location = new System.Drawing.Point(22, 197);
-            this.bg4.Name = "bg4";
-            this.bg4.Size = new System.Drawing.Size(121, 24);
-            this.bg4.TabIndex = 54;
-            this.bg4.SelectedIndexChanged += new System.EventHandler(this.BackgroundChange);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label47);
-            this.groupBox3.Controls.Add(this.label44);
-            this.groupBox3.Controls.Add(this.label41);
-            this.groupBox3.Controls.Add(this.attackBarrier);
-            this.groupBox3.Controls.Add(this.backtrace);
-            this.groupBox3.Controls.Add(this.firewall);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox3.Location = new System.Drawing.Point(400, 1090);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(387, 241);
-            this.groupBox3.TabIndex = 56;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Cyber Defenses (6)";
-            // 
-            // attackBarrier
-            // 
-            this.attackBarrier.LargeChange = 1;
-            this.attackBarrier.Location = new System.Drawing.Point(141, 136);
-            this.attackBarrier.Maximum = 5;
-            this.attackBarrier.Minimum = 1;
-            this.attackBarrier.Name = "attackBarrier";
-            this.attackBarrier.Size = new System.Drawing.Size(104, 45);
-            this.attackBarrier.TabIndex = 53;
-            this.attackBarrier.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.attackBarrier.Value = 1;
-            this.attackBarrier.Scroll += new System.EventHandler(this.CyberDefensesScroll);
-            // 
-            // backtrace
-            // 
-            this.backtrace.LargeChange = 1;
-            this.backtrace.Location = new System.Drawing.Point(141, 85);
-            this.backtrace.Maximum = 5;
-            this.backtrace.Minimum = 1;
-            this.backtrace.Name = "backtrace";
-            this.backtrace.Size = new System.Drawing.Size(104, 45);
-            this.backtrace.TabIndex = 51;
-            this.backtrace.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.backtrace.Value = 1;
-            this.backtrace.Scroll += new System.EventHandler(this.CyberDefensesScroll);
-            // 
-            // firewall
-            // 
-            this.firewall.LargeChange = 1;
-            this.firewall.Location = new System.Drawing.Point(141, 34);
-            this.firewall.Maximum = 5;
-            this.firewall.Minimum = 1;
-            this.firewall.Name = "firewall";
-            this.firewall.Size = new System.Drawing.Size(104, 45);
-            this.firewall.TabIndex = 49;
-            this.firewall.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.firewall.Value = 1;
-            this.firewall.Scroll += new System.EventHandler(this.CyberDefensesScroll);
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(87, 46);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(59, 17);
-            this.label41.TabIndex = 54;
-            this.label41.Text = "Firewall:";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(71, 97);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(75, 17);
-            this.label44.TabIndex = 55;
-            this.label44.Text = "Backtrace:";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(48, 148);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(98, 17);
-            this.label47.TabIndex = 56;
-            this.label47.Text = "Attack Barrier:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1687,6 +1714,18 @@
             this.Text = "Article 8 Character Planner";
             this.CharacterDetails.ResumeLayout(false);
             this.CharacterDetails.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.attackBarrier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backtrace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firewall)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bgdots4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bgdots3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bgdots2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bgdots1)).EndInit();
             this.propModParent.ResumeLayout(false);
             this.propModParent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.propMod3)).EndInit();
@@ -1737,17 +1776,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Stamina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dexterity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Strength)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bgdots1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bgdots2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bgdots3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bgdots4)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.attackBarrier)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backtrace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firewall)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1878,6 +1906,8 @@
         private System.Windows.Forms.TrackBar attackBarrier;
         private System.Windows.Forms.TrackBar backtrace;
         private System.Windows.Forms.TrackBar firewall;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.CheckedListBox flawBox;
     }
 }
 
