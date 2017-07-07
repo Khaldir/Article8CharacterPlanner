@@ -308,12 +308,14 @@ namespace CharacterPlanner
 
 
                     getRange("Juice").Text = getDots(10 + bars[i - 1].Value, 10 + bars[i - 1].Value);
+                    getRange("ClearanceLevel").Text = (9 - bars[i - 1].Value).ToString();
                 }
             }
             if (!dotsInClearance)
             {
                 getRange("JuiceperTurn").Text = "1";
                 getRange("Juice").Text = getDots(10, 10);
+                getRange("ClearanceLevel").Text = (9).ToString();
             }
             //Cyber Defenses
             getRange("Firewall").Text = getDots(firewall.Value);
