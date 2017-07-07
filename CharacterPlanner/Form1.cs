@@ -19,6 +19,8 @@ namespace CharacterPlanner
         bool validAttributes = true;
         bool validAbilities = true;
         bool validMods = true;
+        bool validBGs = true;
+        bool validDefs = true;
         int[] AttributePoints = new int[3];
         int[] AbilityPoints = new int[3];
         string[] selectedBG = new string[4];
@@ -40,7 +42,19 @@ namespace CharacterPlanner
 
         private void checkValid()
         {
-            ExportButton.Enabled = validAbilities && validAttributes && validMods;
+            ExportButton.Enabled = validAbilities && validAttributes && validMods && validDefs && validBGs;
+            if (!validAbilities)
+                ExportButton.Text = "Invalid Abilities";
+            else if (!validAttributes)
+                ExportButton.Text = "Invalid Attributes";
+            else if (!validMods)
+                ExportButton.Text = "Invalid Prop. Mods";
+            else if (!validDefs)
+                ExportButton.Text = "Invalid Defenses";
+            else if (!validBGs)
+                ExportButton.Text = "Invalid Backgrounds";
+            else
+                ExportButton.Text = "Export Character";
         }
 
         private void checkValidAttributes()
@@ -230,6 +244,8 @@ namespace CharacterPlanner
             getRange("Perception").Text = getDots(Perception.Value);
             getRange("Intelligence").Text = getDots(Intelligence.Value);
             getRange("Wits").Text = getDots(Wits.Value);
+            //Inferred Values
+            getRange("Willpower").Text = getDots(Stamina.Value + Math.Max(Intelligence.Value, Wits.Value), 10);
 
             //Abilities
             //Talents
@@ -273,14 +289,37 @@ namespace CharacterPlanner
             getRange("ProprietaryValue1").Text = getDots(propMod1.Value);
             getRange("ProprietaryValue2").Text = getDots(propMod2.Value);
             getRange("ProprietaryValue3").Text = getDots(propMod3.Value);
-            //Backgrounds
+            //Backgrounds & Juice
             TrackBar[] bars = new TrackBar[4] { bgdots1, bgdots2, bgdots3, bgdots4 };
+            bool dotsInClearance = false;
             for (int i = 1; i < 5; i++)
             {
                 getRange("Background" + i.ToString()).Text = selectedBG[i-1];
                 getRange("BackgroundDots" + i.ToString()).Text = getDots(bars[i - 1].Value);
+                if(selectedBG[i-1]=="Clearance" && !dotsInClearance)
+                {
+                    dotsInClearance = true;
+                    if(bars[i-1].Value < 4)
+                        getRange("JuiceperTurn").Text = "1";
+                    else if (bars[i - 1].Value == 4)
+                        getRange("JuiceperTurn").Text = "2";
+                    else if (bars[i - 1].Value == 5)
+                        getRange("JuiceperTurn").Text = "3";
+
+
+                    getRange("Juice").Text = getDots(10 + bars[i - 1].Value, 10 + bars[i - 1].Value);
+                }
             }
-             
+            if (!dotsInClearance)
+            {
+                getRange("JuiceperTurn").Text = "1";
+                getRange("Juice").Text = getDots(10, 10);
+            }
+            //Cyber Defenses
+            getRange("Firewall").Text = getDots(firewall.Value);
+            getRange("Backtrace").Text = getDots(backtrace.Value);
+            getRange("AttackBarrier").Text = getDots(attackBarrier.Value);
+
 
             //Save Document
             wordDoc.SaveAs2(System.Windows.Forms.Application.StartupPath + "/" + CharacterName.Text + " - Character Sheet");
@@ -340,6 +379,15 @@ namespace CharacterPlanner
             return bkm.Range;
         }
 
+        private void CyberDefensesScroll(object sender, EventArgs e)
+        {
+            if(firewall.Value+backtrace.Value+attackBarrier.Value > 6)
+            {
+                validDefs = false;
+            }
+            checkValid();
+        }
+
         private string getDots(int dots)
         {
             string dotString = "";
@@ -348,6 +396,20 @@ namespace CharacterPlanner
                 dotString = dotString + "●";
             }
             for (int i = dots; i < 5; i++)
+            {
+                dotString = dotString + "○";
+            }
+            return dotString;
+        }
+
+        private string getDots(int dots, int maxDots)
+        {
+            string dotString = "";
+            for (int i = 0; i < dots; i++)
+            {
+                dotString = dotString + "●";
+            }
+            for (int i = dots; i < maxDots; i++)
             {
                 dotString = dotString + "○";
             }
